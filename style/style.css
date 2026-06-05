@@ -23,6 +23,9 @@ body{
     background-color: var(--background-principal);
     color: white;
     font-family: var(--fuente-textos);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
 /*HEADER Y NAVEGACION*/
@@ -110,7 +113,8 @@ header ul li a:hover{
 .servicios{
     display: flex;
     justify-content: space-evenly;
-    gap:20px
+    gap:20px;
+    height: 624px;
 }
 .servicios .pregunta{
     background: var(--background-destacado);
@@ -118,6 +122,168 @@ header ul li a:hover{
     height: 384px;
     display: flex;
     flex-direction: column;
+    justify-content: left;
+    gap: 3rem;
+    color: #000;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.pregunta h3{
+    color: black;
+    font-size: 24px;
+}
+.pregunta ul{
+    display: flex;
+    gap: 1.3rem;
+    flex-direction: column;
+    color: #334155;
+    font-size: 18px;
+}
+
+/*SECCION DE PLANES Y PAGOS*/
+
+.planes{
+    display: flex;
+    justify-content: space-evenly;
+    gap:20px;
+    height: 648px;
+}
+.planes .plan{
+    background: var(--background-destacado);
+    width: 576px;
+    height: 406px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4rem;
+    color: #000;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.planes .plan .textos-plan{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: left;
+    gap: .7rem;
+}
+.planes .plan .textos-plan h3{
+    color: black;
+    font-size: 20px;
+    font-width: bold;
+}
+.planes .plan .textos-plan p{
+    color: #334155;
+    font-size: 18px;
+}
+.planes .plan .textos-plan label{
+    color: #334155;
+}
+.planes .plan .textos-plan label span{
+    font-size: 56px;
+    color: black;
+    font-weight: bold;
+}
+.planes .plan .textos-plan ul{
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    font-size: 18px;
+    
+}
+.planes .plan .boton-plan{
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 15rem;
+}
+.planes .plan .boton-plan button{
+    width: 528px;
+    height: 48px;
+    border: none;
+    border-radius: .7rem;
+    background-color: black;
+    color: white;
+}
+.planes .plan .boton-plan button:hover{
+    background-color: var(--bordes-sombras);
+    transition: .2s;
+}
+
+/*COMENTARIOS*/
+
+.comentarios{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 527px;
+    padding: 2rem;
+}
+.comentarios .comentarios-textos h2{
+    font-size: 48px;
+    font-weight: bold;
+}
+.comentarios .comentarios-textos p{
+    color: #94A3B8;
+    font-size: 20px;
+}
+
+.comentarios .comentarios-contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.comentarios .comentarios-contenedor .comentario{
+    width: 336px;
+    height: 280px;
+    color: black;
+    background-color: var(--background-destacado);
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.comentarios .comentarios-contenedor .comentario .comentario-text{
+    font-size: 18px;
+    font-weight: bold;
+    padding: 1rem;
+}
+.comentarios .comentarios-contenedor .comentario .comentario-cliente{
+    font-size: 16px;
+    padding: 1rem;
+}
+
+.comentarios .comentarios-contenedor .comentario .comentario-cliente p span{
+    font-weight: bold;
+    color: black;
+}
+.comentarios .comentarios-contenedor .comentario .comentario-cliente p{
+    color: #334155;
+}
+
+/*PREGUNTAS FRECUENTES*/
+
+.preguntas{
+    display: flex;
+    height: 328px;
+    justify-content: space-around;
+}
+.preguntas .pregunta{
+    width: 565px;
+    height: 88px;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.preguntas .pregunta h3{
+    color: white;
+    font-weight: bold;
+}
+.preguntas .pregunta p{
+    color: #94A3B8;
+}
+.preguntas-titulo{
+    font-size: 48px;
+    font-weight: bold;
+
 }
