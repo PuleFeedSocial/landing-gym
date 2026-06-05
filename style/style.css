@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+:root{
+    --background-principal: #0F172A;
+    --titulo-principal:#FFFFFF;
+    --texto-secundario: #CBD5E1;
+    --texto-apoyo:#94A3B8;
+    --boton-principal:#22C55E;
+    --boton-hover: #16A34A;
+    --texto-boton: #FFFFFF;
+    --background-destacado: #4ADE80;
+    --bordes-sombras:#334155;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--background-principal);
+    color: var();
+}
