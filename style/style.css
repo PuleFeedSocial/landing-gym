@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+@import url('https://googleapis.com');
 :root{
     --background-principal: #0F172A;
     --titulo-principal:#FFFFFF;
@@ -10,6 +10,7 @@
     --texto-boton: #FFFFFF;
     --background-destacado: #4ADE80;
     --bordes-sombras:#334155;
+    --fuente-textos: 'Inter', sans-serif;
 }
 
 *{
@@ -20,5 +21,103 @@
 
 body{
     background-color: var(--background-principal);
-    color: var();
+    color: white;
+    font-family: var(--fuente-textos);
+}
+
+/*HEADER Y NAVEGACION*/
+
+header{
+    display: flex;
+    justify-content: space-between;    
+    height: 5rem;
+}
+header label{
+    font-size: 56px;
+    color: white;
+    font-family: var(--fuente-textos);
+    padding: .5rem;
+}
+header nav{
+    display: flex;
+    padding: 1.2rem;
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-textos);
+
+}
+header ul li a{
+    text-decoration: none;
+    color: white;
+}
+header ul li a:hover{
+    color: var(--texto-apoyo);
+    transition: .2s;
+}   
+
+/*PRINCIPAL*/
+
+.principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 750px;
+}
+.principal h1{
+    color: white;
+    font-family: var(--fuente-textos);
+    font-size: 64px;
+}
+.botones-principal{
+    display: flex;
+    gap: 20px;
+}
+.botones-principal button:first-child{
+    color: white;
+    background-color: var(--boton-principal);
+    border: none;
+    height: 50px;
+    width: 108px;
+    border-radius: 10px;
+}
+.botones-principal button:last-child{
+    background-color: var(--background-principal);
+    border: 1px solid gray;
+    color: white;
+    height: 50px;
+    width: 108px;
+    border-radius: 10px;
+}
+.botones-principal button:first-child:hover{
+    background-color: var(--boton-hover);
+    transition: .2s;
+}
+
+.botones-principal button:last-child:hover{
+    background-color: var(--boton-hover);
+    transition: .2s;
+}
+
+/*SECCION DE SERVICIOS Y BENEFICIOS*/
+
+.servicios{
+    display: flex;
+    justify-content: space-evenly;
+    gap:20px
+}
+.servicios .pregunta{
+    background: var(--background-destacado);
+    width: 576px;
+    height: 384px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15rem;
 }
