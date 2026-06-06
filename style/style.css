@@ -1,289 +1,522 @@
 @charset "UTF-8";
-@import url('https://googleapis.com');
-:root{
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
     --background-principal: #0F172A;
-    --titulo-principal:#FFFFFF;
+    --titulo-principal: #FFFFFF;
     --texto-secundario: #CBD5E1;
-    --texto-apoyo:#94A3B8;
-    --boton-principal:#22C55E;
+    --texto-apoyo: #94A3B8;
+    --boton-principal: #22C55E;
     --boton-hover: #16A34A;
     --texto-boton: #FFFFFF;
     --background-destacado: #4ADE80;
-    --bordes-sombras:#334155;
+    --bordes-sombras: #334155;
     --fuente-textos: 'Inter', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-*{
+html {
+    scroll-behavior: smooth;
+}
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: var(--background-principal);
     color: white;
     font-family: var(--fuente-textos);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 6rem;
+    overflow-x: hidden;
 }
 
-/*HEADER Y NAVEGACION*/
+/* ANIMACIONES */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-header{
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.anim-fade-up {
+    animation: fadeInUp 0.7s ease forwards;
+}
+
+.anim-fade-in {
+    animation: fadeIn 0.7s ease forwards;
+}
+
+.anim-scale {
+    animation: scaleIn 0.5s ease forwards;
+}
+
+/* HEADER */
+header {
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;
+    align-items: center;
     height: 5rem;
+    padding: 0 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
 }
-header label{
-    font-size: 56px;
+
+header label {
+    font-size: 1.5rem;
     color: white;
-    font-family: var(--fuente-textos);
-    padding: .5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
-header nav{
+
+header nav ul {
     display: flex;
-    padding: 1.2rem;
-}
-header ul{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 2rem;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    font-family: var(--fuente-textos);
-
 }
-header ul li a{
+
+header nav ul li a {
     text-decoration: none;
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--boton-principal);
+    transition: var(--transition);
+}
+
+header nav ul li a:hover {
     color: white;
 }
-header ul li a:hover{
-    color: var(--texto-apoyo);
-    transition: .2s;
-}   
 
-/*PRINCIPAL*/
+header nav ul li a:hover::after {
+    width: 100%;
+}
 
-.principal{
+/* HERO */
+.principal {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    height: 750px;
-}
-.principal h1{
-    color: white;
-    font-family: var(--fuente-textos);
-    font-size: 64px;
-}
-.botones-principal{
-    display: flex;
-    gap: 20px;
-}
-.botones-principal button:first-child{
-    color: white;
-    background-color: var(--boton-principal);
-    border: none;
-    height: 50px;
-    width: 108px;
-    border-radius: 10px;
-}
-.botones-principal button:last-child{
-    background-color: var(--background-principal);
-    border: 1px solid gray;
-    color: white;
-    height: 50px;
-    width: 108px;
-    border-radius: 10px;
-}
-.botones-principal button:first-child:hover{
-    background-color: var(--boton-hover);
-    transition: .2s;
-}
-
-.botones-principal button:last-child:hover{
-    background-color: var(--boton-hover);
-    transition: .2s;
-}
-
-/*SECCION DE SERVICIOS Y BENEFICIOS*/
-
-.servicios{
-    display: flex;
-    justify-content: space-evenly;
-    gap:20px;
-    height: 624px;
-}
-.servicios .pregunta{
-    background: var(--background-destacado);
-    width: 576px;
-    height: 384px;
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    gap: 3rem;
-    color: #000;
-    padding: 2rem;
-    border-radius: 1rem;
-}
-.pregunta h3{
-    color: black;
-    font-size: 24px;
-}
-.pregunta ul{
-    display: flex;
-    gap: 1.3rem;
-    flex-direction: column;
-    color: #334155;
-    font-size: 18px;
-}
-
-/*SECCION DE PLANES Y PAGOS*/
-
-.planes{
-    display: flex;
-    justify-content: space-evenly;
-    gap:20px;
-    height: 648px;
-}
-.planes .plan{
-    background: var(--background-destacado);
-    width: 576px;
-    height: 406px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 4rem;
-    color: #000;
-    padding: 2rem;
-    border-radius: 1rem;
-}
-.planes .plan .textos-plan{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    align-items: left;
-    gap: .7rem;
-}
-.planes .plan .textos-plan h3{
-    color: black;
-    font-size: 20px;
-    font-width: bold;
-}
-.planes .plan .textos-plan p{
-    color: #334155;
-    font-size: 18px;
-}
-.planes .plan .textos-plan label{
-    color: #334155;
-}
-.planes .plan .textos-plan label span{
-    font-size: 56px;
-    color: black;
-    font-weight: bold;
-}
-.planes .plan .textos-plan ul{
-    display: flex;
-    flex-direction: column;
-    gap: .6rem;
-    font-size: 18px;
-    
-}
-.planes .plan .boton-plan{
-    display: flex;
-    flex-direction: row;
     justify-content: center;
+    min-height: 80vh;
+    gap: 2.5rem;
+    padding: 2rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
 }
-.planes .plan .boton-plan button{
-    width: 528px;
+
+.principal h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -1px;
+}
+
+.botones-principal {
+    display: flex;
+    gap: 1rem;
+}
+
+.botones-principal button {
+    height: 52px;
+    padding: 0 1.75rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.botones-principal button:first-child {
+    color: white;
+    background: var(--boton-principal);
+    border: none;
+}
+
+.botones-principal button:last-child {
+    background: transparent;
+    border: 1.5px solid var(--bordes-sombras);
+    color: var(--texto-secundario);
+}
+
+.botones-principal button:first-child:hover {
+    background: var(--boton-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+}
+
+.botones-principal button:last-child:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--texto-apoyo);
+    transform: translateY(-2px);
+}
+
+/* SERVICIOS */
+.servicios {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.servicios .pregunta {
+    background: var(--background-destacado);
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: #000;
+    padding: 2.5rem 2rem;
+    border-radius: 1.25rem;
+    transition: var(--transition);
+}
+
+.servicios .pregunta:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(74, 222, 128, 0.15);
+}
+
+.servicios .pregunta h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: black;
+}
+
+.servicios .pregunta ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    color: #1a1a2e;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding-left: 1.2rem;
+}
+
+/* PLANES */
+.planes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.planes .plan {
+    background: var(--background-destacado);
+    flex: 1;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #000;
+    padding: 2.5rem 2rem;
+    border-radius: 1.25rem;
+    transition: var(--transition);
+}
+
+.planes .plan:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(74, 222, 128, 0.15);
+}
+
+.planes .plan .textos-plan {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.planes .plan .textos-plan h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: black;
+}
+
+.planes .plan .textos-plan > p {
+    color: #334155;
+    font-size: 0.95rem;
+}
+
+.planes .plan .textos-plan label {
+    color: #334155;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.planes .plan .textos-plan label span {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: black;
+}
+
+.planes .plan .textos-plan ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #1a1a2e;
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.planes .plan .boton-plan {
+    margin-top: 1.5rem;
+}
+
+.planes .plan .boton-plan button {
+    width: 100%;
     height: 48px;
     border: none;
-    border-radius: .7rem;
-    background-color: black;
+    border-radius: 0.75rem;
+    background: black;
     color: white;
-}
-.planes .plan .boton-plan button:hover{
-    background-color: var(--bordes-sombras);
-    transition: .2s;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-/*COMENTARIOS*/
+.planes .plan .boton-plan button:hover {
+    background: #1a1a2e;
+    transform: scale(1.02);
+}
 
-.comentarios{
+/* COMENTARIOS */
+.comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0 4rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.comentarios-textos {
+    text-align: center;
+}
+
+.comentarios-textos h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.comentarios-textos p {
+    color: var(--texto-apoyo);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+.comentarios-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.comentarios-contenedor .comentario {
+    width: 320px;
+    color: black;
+    background: var(--background-destacado);
+    border-radius: 1.25rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 527px;
     padding: 2rem;
-}
-.comentarios .comentarios-textos h2{
-    font-size: 48px;
-    font-weight: bold;
-}
-.comentarios .comentarios-textos p{
-    color: #94A3B8;
-    font-size: 20px;
+    transition: var(--transition);
 }
 
-.comentarios .comentarios-contenedor{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 10px;
-}
-.comentarios .comentarios-contenedor .comentario{
-    width: 336px;
-    height: 280px;
-    color: black;
-    background-color: var(--background-destacado);
-    border-radius: 14px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-.comentarios .comentarios-contenedor .comentario .comentario-text{
-    font-size: 18px;
-    font-weight: bold;
-    padding: 1rem;
-}
-.comentarios .comentarios-contenedor .comentario .comentario-cliente{
-    font-size: 16px;
-    padding: 1rem;
+.comentarios-contenedor .comentario:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(74, 222, 128, 0.15);
 }
 
-.comentarios .comentarios-contenedor .comentario .comentario-cliente p span{
-    font-weight: bold;
+.comentario-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+.comentario-cliente {
+    margin-top: 1rem;
+}
+
+.comentario-cliente p span {
+    font-weight: 700;
     color: black;
 }
-.comentarios .comentarios-contenedor .comentario .comentario-cliente p{
+
+.comentario-cliente p {
     color: #334155;
+    font-size: 0.85rem;
 }
 
-/*PREGUNTAS FRECUENTES*/
-
-.preguntas{
-    display: flex;
-    height: 328px;
-    justify-content: space-around;
+/* PREGUNTAS FRECUENTES */
+.preguntas-titulo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: -0.5px;
 }
-.preguntas .pregunta{
-    width: 565px;
-    height: 88px;
+
+.preguntas {
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 4rem;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
 }
-.preguntas .pregunta h3{
-    color: white;
-    font-weight: bold;
-}
-.preguntas .pregunta p{
-    color: #94A3B8;
-}
-.preguntas-titulo{
-    font-size: 48px;
-    font-weight: bold;
 
+.preguntas .pregunta {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--bordes-sombras);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.preguntas .pregunta:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--boton-principal);
+}
+
+.preguntas .pregunta h3 {
+    color: white;
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.preguntas .pregunta p {
+    color: var(--texto-apoyo);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem 4rem;
+    border-top: 1px solid var(--bordes-sombras);
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+footer p {
+    color: var(--texto-apoyo);
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .servicios,
+    .planes {
+        flex-wrap: wrap;
+    }
+
+    .servicios .pregunta,
+    .planes .plan {
+        max-width: 100%;
+        flex: 1 1 calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        gap: 4rem;
+    }
+
+    header {
+        padding: 0 1.5rem;
+    }
+
+    header label {
+        font-size: 1.2rem;
+    }
+
+    header nav ul {
+        gap: 1.25rem;
+    }
+
+    .servicios,
+    .planes,
+    .comentarios,
+    .preguntas {
+        padding: 0 1.5rem;
+    }
+
+    .servicios .pregunta,
+    .planes .plan {
+        flex: 1 1 100%;
+    }
+
+    .comentarios-contenedor .comentario {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem 1.5rem;
+        gap: 0.5rem;
+    }
+
+    .principal {
+        min-height: 60vh;
+    }
+
+    .principal h1 {
+        font-size: 2rem;
+    }
+
+    .botones-principal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .botones-principal button {
+        width: 100%;
+    }
 }
